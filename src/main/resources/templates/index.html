@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="人工智能语言对话系统">
+<meta name="author" content="袁太富">
+<meta name="keywords" content="人工智能，语音对哈，智能学习">
+<title>人工智能语言对话系统</title>
+<link rel="stylesheet" type="text/css" href="resources/css/index.css">
+<script type="text/javascript" src="resources/js/jquery-2.1.4.min.js"></script>
+
+<style type="text/css">
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #ffc8ee;
+}
+
+div {
+    margin: 15% auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+p {
+    color: #e63149;
+}
+</style>
+</head>
+<body>
+    <div>
+        <h1>欢迎光临人工智能系统</h1>
+        <br />
+        <p>输入任意键进入系统</p>
+    </div>
+</body>
+<script type="text/javascript">
+
+document.onkeydown = keydown; //按下键盘事件 
+function keydown(e){  
+    window.location.href="/home";
+}
+</script>
+</html>

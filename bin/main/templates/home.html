@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="人工智能语言对话系统">
+<meta name="author" content="袁太富">
+<meta name="keywords" content="人工智能，语音对哈，智能学习">
+<title>人工智能语言对话系统</title>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+
+<style type="text/css">
+</style>
+</head>
+<body>
+    <div class="content">
+        <div class="mobile-page" >
+            <div id="duihua">
+                <div class="admin-group">
+                    <img class="admin-img" th:src="@{/img/head-robot.jpg}" />
+                    <div class="admin-msg">
+                        <i class="triangle-admin"></i> <span class="admin-reply">欢迎光临人工智能系统</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#bottom" name="bottom" id="bottom"></a>
+            
+            <div style="display: none;">
+                <div class="admin-group" id="robot">
+                    <img class="admin-img" th:src="@{/img/head-robot.jpg}" />
+                    <div class="admin-msg">
+                        <i class="triangle-admin"></i> <span class="admin-reply"></span>
+                    </div>
+                </div>
+                <div class="user-group" id="man">
+                    <div class="user-msg">
+                        <span class="user-reply"></span> <i class="triangle-user"></i>
+                    </div>
+                    <img class="user-img" th:src="@{/img/head-boy.jpg}" />
+                </div>
+            </div>
+        </div>
+        <div class="send">
+            <input type="text" id="keyword" placeholder="想说点什么..." class="input-text" onkeypress="submit(event)" /> 
+            <input type="submit" value="发送" class="input-submit" onclick="send()"/>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+$(function(){
+    $("#keyword").focus();//获取焦点
+});
+function submit(e){
+    var e = e||window.event;
+    if(e.keyCode == 13){
+        send();
+    }
+}
+function send(){
+    var keyword = $.trim($("#keyword").val());  
+    $("#keyword").val("");//清空输入框
+    if(keyword==""){
+        return;
+    }
+    var man = $("#man").clone();//复制客户对话框div
+    man.find("span").text(keyword);//将输入的信息放入客户信息框
+    var parentDiv = $("#duihua");//整个对话框
+    parentDiv.append(man);//将刚才的带有信息的对话框放到整个对话框
+    $("#bottom")[0].click();//滚动条到底部
+    $("#keyword").focus();
+    $.ajax({
+        type:"post",
+        url:"hello",
+        data:{keyword:keyword},//名字：值
+        success:function(result){//调用hello调用成功      
+            if(result=="退出"){  
+                //CloseWebPage();
+                window.location.href = '/robotQA/home';
+                //window.location.href = 'home'; // 也可以
+                return;
+            }
+            var robot = $("#robot").clone();
+            robot.find("span").text(result);
+            parentDiv.append(robot);
+            $("#bottom")[0].click();
+            $("#keyword").focus();
+        }
+    });
+}
+</script>
+</html>

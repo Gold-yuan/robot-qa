@@ -1,0 +1,179 @@
+body {
+	font: 16px/1.5 "microsoft yahei", 'tahoma';
+	background-color: #efd1d1;
+}
+
+body, h1, h2, h3, h4, p, ul, ol, li, form, button, input, textarea, th,
+	td {
+	margin: 0;
+	padding: 0
+}
+
+body, button, input, select, textarea {
+	font: 12px/1.5 Microsoft YaHei UI Light, tahoma, arial, "\5b8b\4f53";
+	*line-height: 1.5;
+	-ms-overflow-style: scrollbar
+}
+
+h1, h2, h3, h4 {
+	font-size: 100%
+}
+
+ul, ol {
+	list-style: none
+}
+
+a {
+	text-decoration: none
+}
+
+a:hover {
+	text-decoration: underline
+}
+
+img {
+	border: 0
+}
+
+button, input, select, textarea {
+	font-size: 100%
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+/*rem*/
+html {
+	font-size: 62.5%;
+}
+
+body .mobile-page {
+	font-size: 1.6rem;
+	margin: 10px auto;
+	height: 500px;
+	display: auto;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.mobile-page {
+	max-width: 600px;
+	overflow: auto;
+	background-color: #fff;
+	border-radius: 15px;
+}
+
+.mobile-page .admin-img, .mobile-page .user-img {
+	width: 45px;
+	height: 45px;
+}
+
+i.triangle-admin, i.triangle-user {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 10px;
+	display: inline-block;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+}
+
+.mobile-page i.triangle-admin {
+	left: 4px;
+	border-right: 12px solid #ffc8ee;
+}
+
+.mobile-page i.triangle-user {
+	right: 4px;
+	border-left: 12px solid #9EEA6A;
+}
+
+.mobile-page .admin-group, .mobile-page .user-group {
+	padding: 6px;
+	display: flex;
+	display: -webkit-flex;
+}
+
+.mobile-page .admin-group {
+	justify-content: flex-start;
+	-webkit-justify-content: flex-start;
+}
+
+.mobile-page .user-group {
+	justify-content: flex-end;
+	-webkit-justify-content: flex-end;
+}
+
+.mobile-page .admin-reply, .mobile-page .user-reply {
+	display: inline-block;
+	padding: 8px;
+	border-radius: 4px;
+	background-color: #fff;
+	margin: 0 15px 12px;
+}
+
+.mobile-page .admin-reply {
+	box-shadow: 0px 0px 2px #ffc8ee;
+	background-color: #ffc8ee;
+}
+
+.mobile-page .user-reply {
+	text-align: left;
+	background-color: #9EEA6A;
+	box-shadow: 0px 0px 2px #bbb;
+}
+
+.mobile-page .user-msg, .mobile-page .admin-msg {
+	width: 75%;
+	position: relative;
+}
+
+.mobile-page .user-msg {
+	text-align: right;
+}
+
+.content {
+	margin: 5% auto;
+}
+
+.send {
+	width: 500px;
+	margin: 20px auto;
+}
+
+.input-text {
+	width: 440px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 0px;
+	padding-left: 5px;
+	height: 35px;
+	border: none;
+}
+
+.input-submit {
+	width: 45px;
+	border-radius: 5px;
+    box-shadow: 2px 2px 2px 0px;
+	height: 35px;
+	border: none;
+}
+.input-submit:HOVER {
+	background-color: #4883f1;
+	color: white;
+}

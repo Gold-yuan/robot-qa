@@ -1,0 +1,54 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'java'
+}
+apply plugin: 'io.spring.dependency-management'
+
+group = 'robot.qa'
+version = '0.1'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+
+    implementation 'com.spring4all:mongodb-plus-spring-boot-starter:1.0.0.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'com.google.guava:guava:27.0.1-jre'
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+
+// 清除现有的lib目录
+task clearJar(type: Delete) {
+    delete "$buildDir\\libs\\lib"
+}
+ 
+// 将依赖包复制到lib目录
+task copyJar(type: Copy, dependsOn: 'clearJar') {
+    from configurations.compileClasspath
+    into "$buildDir\\libs\\lib"
+}
+ 
+bootJar {
+    // 例外所有的jar
+    excludes = ["*.jar"]
+    // lib目录的清除和复制任务 
+    dependsOn clearJar
+    dependsOn copyJar
+ 
+    // 指定依赖包的路径
+    manifest {
+        attributes "Manifest-Version": 1.0,
+            'Class-Path': configurations.compileClasspath.files.collect { "lib/$it.name" }.join(' ')
+    }
+}
