@@ -10,10 +10,14 @@
 <script type="text/javascript" src="resources/js/jquery-2.1.4.min.js"></script>
 
 <style type="text/css">
-body {
+html {
     width: 100%;
+}
+body {
+    width: 99%;
     height: 100%;
     background-color: #ffc8ee;
+    margin: 0 auto;
 }
 
 div {
@@ -28,6 +32,13 @@ h1 {
 p {
     color: #e63149;
 }
+.footer{
+    width:99%;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    text-align: center;
+}
 </style>
 </head>
 <body>
@@ -37,12 +48,15 @@ p {
         <p>输入任意键进入系统</p>
         <a th:href="@{/home}">进入系统</a>
     </div>
+    <div class="footer">
+        备案号：<a href="http://www.beian.miit.gov.cn" target="_blank">京ICP备19043462号</a>
+    </div>
 </body>
 <script type="text/javascript">
 
 document.onkeydown = keydown; //按下键盘事件 
 function keydown(e){  
-    window.location.href="/home";
+    //window.location.href="/home";
 }
 </script>
 </html>

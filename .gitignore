@@ -6,6 +6,6 @@ build
 
 *.class
 
-/.settings
-/bin
-/gradle
+/.settings/
+/bin/
+/gradle/
